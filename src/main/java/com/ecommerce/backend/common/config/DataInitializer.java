@@ -3,6 +3,7 @@
 package com.ecommerce.backend.common.config;
 
 import com.ecommerce.backend.enums.RoleEnum;
+import com.ecommerce.backend.enums.UserStatus;
 import com.ecommerce.backend.identity.entity.Role;
 import com.ecommerce.backend.identity.entity.User;
 import com.ecommerce.backend.identity.repository.RoleRepository;
@@ -59,7 +60,7 @@ public class DataInitializer implements CommandLineRunner {
             List<Role> roles = List.of(
 
                 Role.builder()
-                        .name(RoleEnum.CUSTOMER)
+                        .name(RoleEnum.USER)
                         .description("Regular customer who can browse and purchase")
                         .build(),
 
@@ -94,6 +95,7 @@ public class DataInitializer implements CommandLineRunner {
                     .email(adminEmail)
                     .password(passwordEncoder.encode(adminPassword))
                     .phone(adminPhone)
+                    .status(UserStatus.ACTIVE)
                     .emailVerified(true)
                     .phoneVerified(true)
                     .build();

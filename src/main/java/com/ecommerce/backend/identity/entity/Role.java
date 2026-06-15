@@ -25,7 +25,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@Builder //When it is GOOD to use @Builder in Entity - Seed data (DB initialization)
 public class Role {
 
     @Id
@@ -34,7 +34,7 @@ public class Role {
     private Long roleId;
 
     @Column(name = "role_name", nullable = false, unique = true, length = 50)
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING) //tJPA annotation used to store Java enum values in string format in the database.
     private RoleEnum name;
 
     @Column(name = "description")
@@ -46,4 +46,6 @@ public class Role {
     @PrePersist
     public void prePersist() {
         this.createdAt = LocalDateTime.now();
-    }}
+    }
+    
+}

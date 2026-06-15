@@ -1,0 +1,15 @@
+target/
+.idea/
+.vscode/
+*.log
+.env
+
+# Maven wrapper binaries (optional)
+.mvn/wrapper/maven-wrapper.jar
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Application secrets
+application-local.properties
